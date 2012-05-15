@@ -8,6 +8,7 @@ class ProcessFile
 public:
 	ProcessFile(std::string);
 	bool open();
+	bool test();
 	void encrypt(int);
 	void decrypt(int);
 	void close();

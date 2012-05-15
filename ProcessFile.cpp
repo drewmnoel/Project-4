@@ -14,20 +14,31 @@ bool ProcessFile::open(void)
 	ifstream fin(fileName.c_str());
 	if(!fin.is_open())
 		return false;
-	
+
 	fin.seekg(0, ios::end);
 	size = fin.tellg();
 	fin.seekg(0, ios::beg);
-	
+
 	buffer = new char[size];
-	
+
 	fin.read(buffer, size);
-	
+
 	contents = buffer;
 
 	fin.close();
-	
+
 	return true;
+}
+
+bool ProcessFile::test()
+{
+    ifstream fin(fileName.c_str());
+	if(!fin.is_open())
+		return false;
+    else
+        fin.close();
+
+    return true;
 }
 
 // Encrypts "contents" using the offset
